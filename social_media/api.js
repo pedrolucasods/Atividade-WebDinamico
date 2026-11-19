@@ -1,4 +1,4 @@
-class Api{
+export class Api{
     #users
     #posts
     #comments
@@ -41,12 +41,3 @@ class Api{
         return data
     }
 }
-
-async function main(){
-    const api = new Api()
-    const posts = await api.getPosts()
-    const users = await api.getUsers()
-    console.log(users)
-}
-
-main()

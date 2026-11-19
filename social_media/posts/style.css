@@ -1,0 +1,92 @@
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    padding: 40px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(163, 163, 250);
+    width: 100%;
+    border-radius: 30px;
+    padding: 10px;
+    min-height: 0;
+}
+
+.menu{
+    display: flex;
+    background-color: antiquewhite;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.menu-title{
+    display: flex;
+    width: 30%;
+}
+
+.menu-actions{
+    display: flex;
+    width: 70%;
+}
+
+.list-posts{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(111, 111, 192);
+    flex: 1;
+    min-height: 0;
+    width: 90%;
+    height: 100%;
+    margin-top: 10px;
+    border-radius: 15px;
+    gap: 30px;
+    overflow-y: auto;
+}
+
+.div-title{
+    display: block;
+    padding: 10px;
+    width: 100%;
+    background-color: transparent;
+}
+
+.title-list{
+    display: flex;
+    font-style: italic;
+    font-size: 40px;
+    align-self: flex-start;
+}
+
+.post{
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    height: 400px;
+    width: 1000px;
+    flex-shrink: 0;
+    padding: 10px;
+    border-radius: 15px;
+    gap: 10px;
+}
+
+.post h4{
+    display: flex;
+    justify-self: end;
+    font-size: 25px;
+    align-self: flex-start;
+}
+
+.post-info{
+    width: 60%;
+    background-color: blanchedalmond;
+}
