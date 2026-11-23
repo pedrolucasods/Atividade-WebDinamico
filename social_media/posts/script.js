@@ -1,5 +1,13 @@
 import {Api} from '../api.js'
 document.addEventListener("DOMContentLoaded",async ()=>{
+    const sampleCommentsToggle = document.querySelector(".post .comments")
+    const sampleCommentsList = document.getElementById("comments-list")
+    if(sampleCommentsToggle && sampleCommentsList){
+        sampleCommentsToggle.addEventListener("click", ()=>{
+            sampleCommentsList.classList.toggle("escondido")
+        })
+    }
+
     show_posts()
 })
 
@@ -12,7 +20,7 @@ async function show_posts(){
     if(dataPosts.quantity > 0){
         const listPostsDiv = document.getElementsByClassName('list-posts')[0]
         console.log(listPostsDiv)
-        postsArray.forEach(post => {
+        postsArray.forEach(async (post) => {
             const postDiv = document.createElement("div")
             postDiv.classList.add("post")
 
@@ -51,10 +59,15 @@ async function show_posts(){
             commentDivPost.appendChild(commentIcon)
             commentDivPost.appendChild(pQuantity)
 
+            const commentListDiv = document.createElement("div")
+            commentListDiv.classList.add("comments-list")
+            commentListDiv.classList.add("escondido")
+            
             // adiciona todo os elmentos a div info-post
             postInfoDiv.appendChild(h3TitlePost)
             postInfoDiv.appendChild(bodyDivPost)
             postInfoDiv.appendChild(commentDivPost)
+            postInfoDiv.appendChild(commentListDiv)
 
             // adiciona o conteudo na div post principal
             postDiv.appendChild(divUserName)
@@ -62,6 +75,58 @@ async function show_posts(){
 
             // adiciona o post na listagem
             listPostsDiv.appendChild(postDiv)
+
+            commentDivPost.addEventListener("click",async () => {
+                if(!commentListDiv.classList.contains("escondido")){
+                    commentListDiv.classList.add("escondido")
+                    return
+                }
+
+                commentListDiv.classList.remove("escondido")
+                if(commentListDiv.dataset.loaded === "true"){
+                    return
+                }
+
+                const dataComments = await api.getComments(post.id)
+                if(dataComments.length > 0){
+                    dataComments.forEach(comment =>{
+                        const commentInfoDiv = document.createElement("div")
+                        commentInfoDiv.classList.add("comment-info")
+
+                        const commentUserEmail = document.createElement("div")
+                        commentUserEmail.classList.add("user-comment-email")
+
+                        const iconUserComment = document.createElement("span")
+                        iconUserComment.classList.add("material-icons")
+                        iconUserComment.textContent = "account_circle"
+
+                        const pUserEmail = document.createElement("p")
+                        pUserEmail.textContent = comment.email
+
+                        commentUserEmail.appendChild(iconUserComment)
+                        commentUserEmail.appendChild(pUserEmail)
+                        commentInfoDiv.appendChild(commentUserEmail)
+                        
+
+                        const titleCommentDiv = document.createElement("div")
+                        titleCommentDiv.classList.add("title-comment")
+                        const pTitleComment = document.createElement("p")
+                        pTitleComment.textContent = comment.name
+                        titleCommentDiv.appendChild(pTitleComment)
+                        commentInfoDiv.appendChild(titleCommentDiv)
+
+                        const bodyCommentDiv = document.createElement("div")
+                        bodyCommentDiv.classList.add("body-comment")
+                        const pBodyComment = document.createElement("p")
+                        pBodyComment.textContent = comment.body
+                        bodyCommentDiv.appendChild(pBodyComment)
+                        commentInfoDiv.appendChild(bodyCommentDiv)
+
+                        commentListDiv.appendChild(commentInfoDiv)
+                    })
+                }
+                commentListDiv.dataset.loaded = "true"
+            })
             
         })
     }else{

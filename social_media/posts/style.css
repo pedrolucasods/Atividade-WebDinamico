@@ -85,8 +85,8 @@ body{
     display: flex;
     flex-direction: column;
     background-color: aqua;
-    height: 400px;
     width: 60%;
+    max-height: 600px;
     flex-shrink: 0;
     padding: 10px;
     border-radius: 15px;
@@ -158,6 +158,7 @@ body{
     border-radius: 20px;
     background-color: rgba(39, 87, 217, 0.09);
     color: #2757d9;
+    cursor: pointer;
 }
 
 .comments .material-symbols-outlined{
@@ -168,6 +169,82 @@ body{
     margin: 0;
     font-size: 14px;
     font-weight: 600;
+}
+
+.comments-list{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    min-height: 0;
+    margin: 12px 0 0;
+    padding: 12px 4px 4px 0;
+    border-top: 1px solid rgba(39, 87, 217, 0.14);
+    overflow-y: auto;
+}
+
+.comments-list.escondido{
+    display: none;
+}
+
+.comment-info{
+    flex-shrink: 0;
+    width: 100%;
+    margin: 0;
+    padding: 12px 14px;
+    border: 1px solid rgba(39, 87, 217, 0.1);
+    border-radius: 10px;
+    background-color: #f4f6ff;
+}
+
+.user-comment-email{
+    display: flex;
+    justify-content: flex-start;
+    gap: 7px;
+    width: 100%;
+    margin: 0;
+    color: #777b91;
+    font-size: 13px;
+}
+
+.user-comment-email .material-icons{
+    flex-shrink: 0;
+    color: #6975c8;
+    font-size: 18px;
+    margin: 0;
+}
+
+.user-comment-email p{
+    margin: 0;
+}
+
+.title-comment{
+    width: 100%;
+    margin: 9px 0 4px;
+    color: #303653;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.title-comment p{
+    font-size: 18px;
+}
+
+.title-comment p,
+.body-comment p{
+    margin: 0;
+}
+
+.body-comment{
+    width: 100%;
+    margin: 0;
+    color: #55596d;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
 }
 
 @media (max-width: 600px){

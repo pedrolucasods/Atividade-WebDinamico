@@ -23,7 +23,13 @@ export class Api{
     }
 
     async getUsers(){
-        return this.#users
+        const users = await this.#users
+        const posts = await this.#posts
+        const data = users.map(user =>({
+            ...user,
+            quantityPosts:posts.filter(post => post.userId == user.id).length
+        }))
+        return data
     }
 
     async getPosts(){
@@ -38,6 +44,12 @@ export class Api{
                 quantityComments:comments.filter(comment=>comment.postId == post.id).length
             }))
         }
+        return data
+    }
+
+    async getComments(post_id){
+        const comments = await this.#comments
+        const data = comments.filter(comment=>comment.postId == post_id)
         return data
     }
 }
