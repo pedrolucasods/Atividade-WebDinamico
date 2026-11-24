@@ -31,12 +31,11 @@ body{
 
 .menu-title{
     display: flex;
-    width: 30%;
 }
 
 .menu-actions{
     display: flex;
-    width: 70%;
+    gap: 10px;
 }
 
 .list-posts{
@@ -93,6 +92,13 @@ body{
     gap: 10px;
 }
 
+.header-post{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .user-name{
     display: flex;
     justify-content: start;
@@ -101,11 +107,12 @@ body{
     height: 20%;
 }
 
-.user-name span{
-    width: 1%;
-}
 .user-name h4{
     width: 90%;
+}
+
+#post-id{
+    font-size: 20px;
 }
 
 .post h4{

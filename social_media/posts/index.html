@@ -15,25 +15,29 @@
                 <h1>Social Media</h1>
             </div>
             <div class="menu-actions">
+                <select name="field_search" id="field_search">
+                    <option value="title">Title</option>
+                    <option value="id">Id</option>
+                </select>
                 <input type="text" id="search-post">
             </div>
         </div>
+        <div class="empty" id="empty">
+            <h2 id="empty-message">Nada para mostrar...</h2>
+        </div>
         <div class="list-posts">
-            <div class="div-title">
-                <h2 class="title-list">Posts Guys</h2>
-            </div>
-            <div class="empty" id="empty">
-                <h2 id="empty-message">Nada para mostrar...</h2>
-            </div>
-            
             <div class="post">
-                <div class="user-name">
-                    <span class="material-icons">account_circle</span>
-                    <h4>Marcio airicvlkj alçksdjf</h4>
+                <div class="header-post">
+                    <div class="user-name">
+                        <span class="material-icons">account_circle</span>
+                        <h4>Marcio airicvlkj alçksdjf</h4>
+                    </div>
+                    <p id="post-id">#1</p>
                 </div>
                 
+                
                 <div class="post-info">
-                    <h3>Titulo asjdlfk sladkjf</h3>
+                    <h3 id="title-post">Titulo asjdlfk sladkjf</h3>
                     <div class="body-post">
                         <p>flçsadjfçl jkfaslçdfjksadlçfj sdalçfj</p>
                     </div>

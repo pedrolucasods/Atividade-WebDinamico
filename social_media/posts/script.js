@@ -1,5 +1,6 @@
 import {Api} from '../api.js'
 document.addEventListener("DOMContentLoaded",async ()=>{
+    const inputSearch = document.getElementById("search-post")
     const sampleCommentsToggle = document.querySelector(".post .comments")
     const sampleCommentsList = document.getElementById("comments-list")
     if(sampleCommentsToggle && sampleCommentsList){
@@ -8,6 +9,12 @@ document.addEventListener("DOMContentLoaded",async ()=>{
         })
     }
 
+    inputSearch.addEventListener("input",()=>{
+        const fieldSearch = document.getElementById("field_search")
+        const valueField = fieldSearch.value
+        const textInput = inputSearch.value
+        filter_post(valueField,textInput)
+    })
     show_posts()
 })
 
@@ -25,6 +32,9 @@ async function show_posts(){
             postDiv.classList.add("post")
 
             // adiciona o nome dos usuários do post
+            const headerPostDiv = document.createElement("div")
+            headerPostDiv.classList.add("header-post")
+
             const divUserName = document.createElement("div")
             divUserName.classList.add("user-name")
             const iconUserName = document.createElement("span")
@@ -34,12 +44,19 @@ async function show_posts(){
             h4UserName.textContent = post.userName
             divUserName.appendChild(iconUserName)
             divUserName.appendChild(h4UserName)
+            headerPostDiv.appendChild(divUserName)
+
+            const pPostId = document.createElement("p")
+            pPostId.textContent = "#"+post.id
+            pPostId.id = "post-id"
+            headerPostDiv.appendChild(pPostId)
 
             // adiciona informacções do post
             const postInfoDiv = document.createElement("div")
             postInfoDiv.classList.add("post-info")
             const h3TitlePost = document.createElement("h3")
             h3TitlePost.textContent = post.title
+            h3TitlePost.id = "title-post"
 
             const bodyDivPost = document.createElement("div")
             bodyDivPost.classList.add("body-post")
@@ -70,7 +87,7 @@ async function show_posts(){
             postInfoDiv.appendChild(commentListDiv)
 
             // adiciona o conteudo na div post principal
-            postDiv.appendChild(divUserName)
+            postDiv.appendChild(headerPostDiv)
             postDiv.appendChild(postInfoDiv)
 
             // adiciona o post na listagem
@@ -130,8 +147,41 @@ async function show_posts(){
             
         })
     }else{
-        const listEmptyMessage = document.getElementById("empty")
-        listEmptyMessage.style.display = "Flex"
+        const listPostsDiv = document.getElementsByClassName('list-posts')[0]
+        const emptyDiv = document.createElement("div")
+        emptyDiv.classList.add("empty")
+        emptyDiv.id = "empty"
+        const h2MessageEmpty = document.createElement("h2")
+        h2MessageEmpty.textContent = "Nada para mostrar..."
+        emptyDiv.appendChild(h2MessageEmpty)
+        listPostsDiv.appendChild(emptyDiv)
+        emptyDiv.style.display = "Flex"
     }
 }
 
+function filter_post(field,text){
+    const listPostsDiv = document.getElementsByClassName('list-posts')[0]
+    const postsChildrenns = listPostsDiv.children
+    console.log(field)
+    for(const div_post of postsChildrenns){
+        if(field == "id"){
+            const headerPost = div_post.querySelector(".header-post")
+            const pPostId = headerPost.querySelector("#post-id")
+            const textPostId =pPostId.textContent.replace("#")
+            if(!textPostId.includes(text)){
+                div_post.style.display = "none"
+            }else{
+                div_post.style.display = "flex"
+            }
+        }else if(field == "title"){
+            const postInfo = div_post.querySelector(".post-info")
+            const titlePost = postInfo.querySelector("#title-post")
+            const textTitle = titlePost.textContent
+            if(!textTitle.includes(text)){
+                div_post.style.display = "none"
+            }else{
+                div_post.style.display = "flex"
+            }
+        }
+    }
+}
