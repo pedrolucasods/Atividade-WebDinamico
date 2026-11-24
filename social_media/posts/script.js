@@ -1,25 +1,32 @@
 import {Api} from '../api.js'
 document.addEventListener("DOMContentLoaded",async ()=>{
-    const inputSearch = document.getElementById("search-post")
-    const sampleCommentsToggle = document.querySelector(".post .comments")
-    const sampleCommentsList = document.getElementById("comments-list")
     const btnUserRedirect = document.getElementById("goto-users-page")
     btnUserRedirect.addEventListener("click",()=>{
         window.location.href="/social_media/users/index.html"
     })
-    if(sampleCommentsToggle && sampleCommentsList){
-        sampleCommentsToggle.addEventListener("click", ()=>{
-            sampleCommentsList.classList.toggle("escondido")
-        })
-    }
+    if(navigator.onLine){
+        const inputSearch = document.getElementById("search-post")
+        const sampleCommentsToggle = document.querySelector(".post .comments")
+        const sampleCommentsList = document.getElementById("comments-list")
+        if(sampleCommentsToggle && sampleCommentsList){
+            sampleCommentsToggle.addEventListener("click", ()=>{
+                sampleCommentsList.classList.toggle("escondido")
+            })
+        }
 
-    inputSearch.addEventListener("input",()=>{
-        const fieldSearch = document.getElementById("field_search")
-        const valueField = fieldSearch.value
-        const textInput = inputSearch.value
-        filter_post(valueField,textInput)
-    })
-    show_posts()
+        inputSearch.addEventListener("input",()=>{
+            const fieldSearch = document.getElementById("field_search")
+            const valueField = fieldSearch.value
+            const textInput = inputSearch.value
+            filter_post(valueField,textInput)
+        })
+        show_posts()
+    }else{
+        const emptyDiv = document.getElementById("empty")
+        const messageH2 = emptyDiv.querySelector("h2")
+        messageH2.textContent = "Você está offline ://"
+        emptyDiv.style.display = "flex"
+    }
 })
 
 

@@ -1,15 +1,22 @@
 import {Api} from '../api.js'
 document.addEventListener("DOMContentLoaded",async()=>{
-    const inputSearch = document.getElementById("search-user")
-    inputSearch.addEventListener("input",()=>{
-        const fieldSearch = document.getElementById("field_search")
-        const valueInput = inputSearch.value
-        const valueField = fieldSearch.value
-        filter_users(valueField,valueInput.toLowerCase())
+    if(navigator.onLine){
+        const inputSearch = document.getElementById("search-user")
+        inputSearch.addEventListener("input",()=>{
+            const fieldSearch = document.getElementById("field_search")
+            const valueInput = inputSearch.value
+            const valueField = fieldSearch.value
+            filter_users(valueField,valueInput.toLowerCase())
 
-    })
-    console.log("whta sup")
-    show_users()
+        })
+        console.log("whta sup")
+        show_users()
+    }else{
+        const emptyDiv = document.getElementById("empty")
+        const messageH2 = emptyDiv.querySelector("h2")
+        messageH2.textContent = "Você está offline ://"
+        emptyDiv.style.display = "flex"
+    }
 })
 
 async function show_users(){
@@ -22,7 +29,7 @@ async function show_users(){
             // elemento pai do usuário
             const userArticle = document.createElement("article")
             userArticle.classList.add("user")
-           
+        
             // header do usuário
             const headerUserDiv = document.createElement("div")
             headerUserDiv.classList.add("header-user")
