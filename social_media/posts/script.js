@@ -147,15 +147,8 @@ async function show_posts(){
             
         })
     }else{
-        const listPostsDiv = document.getElementsByClassName('list-posts')[0]
-        const emptyDiv = document.createElement("div")
-        emptyDiv.classList.add("empty")
-        emptyDiv.id = "empty"
-        const h2MessageEmpty = document.createElement("h2")
-        h2MessageEmpty.textContent = "Nada para mostrar..."
-        emptyDiv.appendChild(h2MessageEmpty)
-        listPostsDiv.appendChild(emptyDiv)
-        emptyDiv.style.display = "Flex"
+        const emptyDiv = document.getElementById("empty")
+        emptyDiv.style.display = "flex"
     }
 }
 
@@ -183,5 +176,13 @@ function filter_post(field,text){
                 div_post.style.display = "flex"
             }
         }
+    }
+    const everyDisplayNone = [...postsChildrenns].every(div_post=>getComputedStyle(div_post).display === "none")
+    if(everyDisplayNone){
+        const emptyDiv = document.getElementById("empty")
+        emptyDiv.style.display = "flex"
+    }else{
+        const emptyDiv = document.getElementById("empty")
+        emptyDiv.style.display = "none"
     }
 }
