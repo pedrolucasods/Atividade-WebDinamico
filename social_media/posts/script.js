@@ -174,7 +174,7 @@ function filter_post(field,text){
             const postInfo = div_post.querySelector(".post-info")
             const titlePost = postInfo.querySelector("#title-post")
             const textTitle = titlePost.textContent
-            if(!textTitle.includes(text)){
+            if(!textTitle.toLowerCase().includes(text.toLowerCase())){
                 div_post.style.display = "none"
             }else{
                 div_post.style.display = "flex"
