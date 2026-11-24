@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <title>Social Media | Usuários</title>
+</head>
+<body>
+    <div class="container">
+        <header class="menu">
+            <div class="menu-title">
+                <h1>Social Media | Usuários</h1>
+            </div>
+            <div class="menu-actions">
+                <a class="button-link" id="goto-posts-page" href="../posts/index.html">Posts</a>
+                <select name="field_search" id="field_search" aria-label="Campo de busca">
+                    <option value="name">Nome</option>
+                    <option value="email">Email</option>
+                    <option value="id">Id</option>
+                </select>
+                <input type="search" id="search-user" placeholder="Buscar usuário..." aria-label="Buscar usuário">
+            </div>
+        </header>
+
+        <div class="empty" id="empty">
+            <h2 id="empty-message">Nada para mostrar...</h2>
+        </div>
+
+        <main class="list-users">
+            <!-- <article class="user">
+                <div class="header-user">
+                    <div class="user-name">
+                        <span class="material-icons" aria-hidden="true">account_circle</span>
+                        <h4>Leanne Graham</h4>
+                    </div>
+                    <p class="user-id">#1</p>
+                </div>
+                <div class="user-info">
+                    <p class="user-email">
+                        <span class="material-icons" aria-hidden="true">email</span>
+                        <span>Email: leanne.graham@example.com</span>
+                    </p>
+                    <button class="details-button" type="button">Detalhes</button>
+                </div>
+            </article> -->
+
+            <!-- <article class="user">
+                <div class="header-user">
+                    <div class="user-name">
+                        <span class="material-icons" aria-hidden="true">account_circle</span>
+                        <h4>Ervin Howell</h4>
+                    </div>
+                    <p class="user-id">#2</p>
+                </div>
+                <div class="user-info">
+                    <p class="user-email">
+                        <span class="material-icons" aria-hidden="true">email</span>
+                        <span>Email: ervin.howell@example.com</span>
+                    </p>
+                    <button class="details-button" type="button">Detalhes</button>
+                </div>
+            </article> -->
+
+            <!-- <article class="user">
+                <div class="header-user">
+                    <div class="user-name">
+                        <span class="material-icons" aria-hidden="true">account_circle</span>
+                        <h4>Clementine Bauch</h4>
+                    </div>
+                    <p class="user-id">#3</p>
+                </div>
+                <div class="user-info">
+                    <p class="user-email">
+                        <span class="material-icons" aria-hidden="true">email</span>
+                        <span>Email: clementine.bauch@example.com</span>
+                    </p>
+                    <button class="details-button" type="button">Detalhes</button>
+                </div>
+            </article> -->
+        </main>
+    </div>
+</body>
+<script type="module" src="script.js" defer></script>
+</html>

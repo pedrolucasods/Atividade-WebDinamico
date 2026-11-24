@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded",async ()=>{
     const inputSearch = document.getElementById("search-post")
     const sampleCommentsToggle = document.querySelector(".post .comments")
     const sampleCommentsList = document.getElementById("comments-list")
+    const btnUserRedirect = document.getElementById("goto-users-page")
+    btnUserRedirect.addEventListener("click",()=>{
+        window.location.href="/social_media/users/index.html"
+    })
     if(sampleCommentsToggle && sampleCommentsList){
         sampleCommentsToggle.addEventListener("click", ()=>{
             sampleCommentsList.classList.toggle("escondido")
