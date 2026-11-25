@@ -41,7 +41,8 @@ body{
 }
 
 .menu-actions select,
-.menu-actions input{
+.menu-actions input,
+.button-link{
     min-height: 42px;
     margin: 0;
     padding: 0 14px;
@@ -57,6 +58,10 @@ body{
     cursor: pointer;
 }
 
+.button-link{
+    cursor: pointer;
+}
+
 .menu-actions input{
     width: 240px;
 }
@@ -66,6 +71,12 @@ body{
     border-color: #2757d9;
     outline: none;
     box-shadow: 0 0 0 3px rgba(39, 87, 217, 0.15);
+}
+
+.button-link{
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
 }
 
 .list-posts{

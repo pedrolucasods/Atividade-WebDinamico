@@ -73,6 +73,11 @@ async function show_users(){
             const buttonDetailsUser = document.createElement("button")
             buttonDetailsUser.classList.add("details-button")
             buttonDetailsUser.textContent = "Detalhes"
+            buttonDetailsUser.addEventListener("click",()=>{
+                const userDetailsString = JSON.stringify(user)
+                sessionStorage.setItem("user",userDetailsString)
+                window.location.href="./detalhes/index.html"
+            })
             userInfoDiv.appendChild(buttonDetailsUser)
             userArticle.appendChild(userInfoDiv)
 

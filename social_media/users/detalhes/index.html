@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <title>Social Media | Detalhes do usuário</title>
+</head>
+<body>
+    <div class="container">
+        <header class="menu">
+            <div class="menu-title">
+                <h1>Social Media | Usuários</h1>
+            </div>
+            <a class="button-link" href="../index.html">
+                <span class="material-icons" aria-hidden="true">arrow_back</span>
+                Voltar para usuários
+            </a>
+        </header>
+
+        <main class="user-details">
+            <section class="user" aria-labelledby="user-name">
+                <div class="header-user">
+                    <div class="user-name">
+                        <span class="material-icons" aria-hidden="true">account_circle</span>
+                        <div class="user-identity">
+                            <h2><span id="user-name" data-field="name">Leanne Graham</span></h2>
+                            <p data-field="username">@Bret</p>
+                        </div>
+                    </div>
+                    <p class="user-id" data-field="id">#1</p>
+                </div>
+
+                <div class="user-info">
+                    <section class="details-section" aria-labelledby="contact-title">
+                        <h3 id="contact-title">Contato</h3>
+                        <dl class="details-list">
+                            <div class="detail-item">
+                                <dt>E-mail</dt>
+                                <dd data-field="email">Sincere@april.biz</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>Telefone</dt>
+                                <dd data-field="phone">1-770-736-8031 x56442</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>Website</dt>
+                                <dd data-field="website">hildegard.org</dd>
+                            </div>
+                        </dl>
+                    </section>
+
+                    <section class="details-section" aria-labelledby="address-title">
+                        <h3 id="address-title">Endereço</h3>
+                        <dl class="details-list">
+                            <div class="detail-item">
+                                <dt>Rua</dt>
+                                <dd data-field="address.street">Kulas Light</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>Complemento</dt>
+                                <dd data-field="address.suite">Apt. 556</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>Cidade</dt>
+                                <dd data-field="address.city">Gwenborough</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>CEP</dt>
+                                <dd data-field="address.zipcode">92998-3874</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>Latitude</dt>
+                                <dd data-field="address.geo.lat">-37.3159</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>Longitude</dt>
+                                <dd data-field="address.geo.lng">81.1496</dd>
+                            </div>
+                        </dl>
+                    </section>
+
+                    <section class="details-section" aria-labelledby="company-title">
+                        <h3 id="company-title">Empresa</h3>
+                        <dl class="details-list">
+                            <div class="detail-item">
+                                <dt>Nome</dt>
+                                <dd data-field="company.name">Romaguera-Crona</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>Descrição</dt>
+                                <dd data-field="company.catchPhrase">Multi-layered client-server neural-net</dd>
+                            </div>
+                            <div class="detail-item">
+                                <dt>Área de atuação</dt>
+                                <dd data-field="company.bs">harness real-time e-markets</dd>
+                            </div>
+                        </dl>
+                    </section>
+                </div>
+            </section>
+        </main>
+    </div>
+<script type="module" src="script.js" defer></script>
+</body>
+</html>
